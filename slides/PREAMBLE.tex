@@ -1,0 +1,138 @@
+% -----------------------------------------
+% THIS DOCUMENT IS NOT MEANT TO BE COMPILED
+% > please refer to the README
+% -----------------------------------------
+
+% -----------------------------------------
+% -- cspark basic packages
+
+\usepackage{xpatch}     % to hack geometry
+\usepackage{graphicx}   % including graphics
+\usepackage{tikz}       % diagrams in TIKZ
+
+% -----------------------------------------
+% -- package options
+
+% -- -- tikz: things for diagrams
+\usetikzlibrary{arrows,shapes}
+
+% -- -- xpatch: spacing between elements of list
+\xpatchcmd{\itemize}{\def\makelabel}{\setlength{\itemsep}{.3cm}\def\makelabel}{}{}
+
+% -----------------------------------------
+% -- cspark fonts --
+
+\usepackage[default]{sourcesanspro}          % font family
+\usepackage[T1]{fontenc}                     % needed for symbols
+\renewcommand{\pounds}{\text{\textsterling}} % yes, really, with sourcesanspro
+
+% -- -- type of fonts for title/frametitle
+\setbeamerfont{title}{family=\bfseries}      % boldface title
+\setbeamerfont{frametitle}{size=\LARGE}      % LARGE frame titles
+
+% -----------------------------------------
+% -- palette (see http://htmlcolorcodes.com/)
+
+\definecolor{BgColour}{RGB}{240,240,240}
+\definecolor{FgColour}{RGB}{0,0,0}
+\definecolor{LAColour}{RGB}{15,145,85} 
+\definecolor{EmphColour}{HTML}{005AC8}
+
+\newcommand{\csparklogo}{../figures/cspark}
+
+\setbeamercolor{background canvas}{bg=BgColour}  % background color slides
+\setbeamercolor{title}{fg=FgColour}              % colour of title
+\setbeamercolor{frametitle}{fg=FgColour}         % colour of frame titles
+\setbeamercolor{normal text}{fg=FgColour}        % colour of text
+
+% -----------------------------------------
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\definecolor{cspark}{RGB}{178,232,185}
+\definecolor{skyblue}{HTML}{60749B}
+
+\usepackage{listings}
+\usepackage{courier}
+
+\lstset{
+  language=python,
+  frame=leftline,
+  framerule=5pt,
+  rulecolor=\color{cspark},
+  %backgroundcolor=\color{white}, %%%%%%%
+  basicstyle=\footnotesize\ttfamily,
+  otherkeywords={self},            
+  keywordstyle=\color{deepgreen}\bfseries,
+  emph={MyClass,__init__},          
+  emphstyle=\color{deepred},    
+  stringstyle=\color{deepblue},
+  commentstyle=\color{red},  %%%%%%%%
+  %frame=tb,                         
+  showstringspaces=false            
+}
+
+% -----------------------------------------
+% -- cspark geometry/layout --
+
+% -- -- remove header line, navigation symbols
+\setbeamertemplate{headline}{}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{					 % add slide number
+   \raisebox{5pt}{
+   		\makebox[\paperwidth]{
+			\hfill\makebox[10pt]{
+				\scriptsize\insertframenumber
+				}
+			}
+		}
+	}
+
+% -- -- spacing between items, subitems
+\setbeamertemplate{itemize/enumerate subbody begin}{\vspace{.3cm}}
+\setbeamertemplate{itemize/enumerate subbody end}{\vspace{.3cm}}
+
+% -- define bullets
+
+\setbeamertemplate{itemize item}{\color{FgColour}{\small $\blacktriangleright$}}
+\setbeamertemplate{itemize subitem}{\color{FgColour}{\small $\bullet$}}
+
+
+% -----------------------------------------
+% -- cspark commands
+
+\newcommand{\LA}{
+	\textcolor{LAColour}{\texttt{LA\,>\!\,>\!\,>}}\
+	}
+\newcommand{\cspark}[1]{
+	\textcolor{EmphColour}{#1}\
+	}
+\newcommand{\handson}[1]{
+    \begin{frame}
+    \vfill
+    	\begin{center}
+    		\includegraphics[width=.4\textwidth]{../figures/jupyter}
+    		\vspace*{.6cm}
+    		
+    		{\Large Hands-on session}\\[.2cm]
+    	\end{center}
+    	{\small \LA\, #1}
+    	\vfill
+    \end{frame}
+}
+
+\newcommand{\attention}[1]{
+	\begin{columns}
+        	\begin{column}{.05\textwidth}
+		\includegraphics[width=\textwidth]{../figures/attention-sign}
+		
+        	\end{column}
+        	\begin{column}{\textwidth}
+        		\hspace*{-.3cm}#1
+        	\end{column}
+	\end{columns}
+}
+
+\newcommand{\vv}{\\[.2cm]}
+\newcommand{\vsp}{\vspace*{.2cm}}

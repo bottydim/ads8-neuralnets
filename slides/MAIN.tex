@@ -1,0 +1,70 @@
+% \documentclass[handout]{beamer} % compressed (no transition)
+\documentclass{beamer}
+
+% ---------------------------------------------------
+% PREAMBLE (leave this here)
+% > sets the font
+% > sets the geometry
+% > sets the colour names
+% > sets the palettes (light/dark)
+% > sets the spacing
+
+\input{PREAMBLE}
+
+% add here extra packages that you may need
+
+
+% ---------------------------------------------------
+\begin{document}
+% ---------------------------------------------------
+% TITLE
+
+\title{
+	{\LARGE Applied Data Science}\\[.2cm]
+	\emph{Mod.X -- Title}
+} 
+\date{} % No Date
+
+% Styling of front slide, do not modify
+{
+\setbeamertemplate{footline}{} 
+\begin{frame}
+  \vspace*{2.5cm}
+    \titlepage
+	\begin{columns}
+		\begin{column}{.45\textwidth}
+			\begin{flushleft}
+				\vspace*{.2cm}
+				\includegraphics[height=.7cm]{\csparklogo}
+			\end{flushleft}
+		\end{column}
+		\begin{column}{.45\textwidth}
+		    \begin{flushright}
+                \cspark{\footnotesize\texttt{@cambridgespark}}
+            \end{flushright}
+		\end{column}
+	\end{columns}
+\end{frame}
+}
+\addtocounter{framenumber}{-1}
+
+% ---------------------------------------------------
+
+\begin{frame}
+\frametitle{Module outline}
+    \begin{itemize}
+        \item coolness
+        \item more cool stuff
+        \item stuff is actually awesome
+    \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------
+% I recommend using parts as it makes easier to edit
+% slides especially when working collaboratively
+
+\input{part1.tex}
+
+% ---------------------------------------------------
+\end{document}
+% ---------------------------------------------------
